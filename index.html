@@ -12,9 +12,8 @@
             font-family: 'Poppins', sans-serif;
         }
         
-        /* Updated this section to use your local image */
         .hero-bg {
-            background-image: url('CamBG.jpg'); /* This now points to your local image */
+            background-image: url('CamBG.jpg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -34,7 +33,7 @@
         
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .gallery-item {
@@ -81,7 +80,7 @@
             margin: auto;
             display: block;
             width: 80%;
-            max-width: 700px;
+            max-width: 600px;
             max-height: 80%;
             position: absolute;
             top: 50%;
@@ -94,7 +93,7 @@
             top: 15px;
             right: 35px;
             color: #f1f1f1;
-            font-size: 40px;
+            font-size: 30px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -109,8 +108,8 @@
             }
             
             body {
-                font-size: 12px;
-                line-height: 1.4;
+                font-size: 10px;
+                line-height: 1.2;
             }
             
             .container {
@@ -120,18 +119,18 @@
         }
     </style>
 </head>
-<body class="scroll-smooth bg-gray-50">
+<body class="scroll-smooth bg-gray-50 text-sm">
     <!-- Home Page -->
     <div id="home-page">
         <!-- Navigation -->
-        <nav class="fixed w-full z-50 bg-white shadow-lg no-print">
-            <div class="container mx-auto px-6 py-3">
+        <nav class="fixed w-full z-50 bg-white shadow-md no-print">
+            <div class="container mx-auto px-4 py-2">
                 <div class="flex justify-between items-center">
-                    <div class="text-2xl font-bold text-gray-800">
+                    <div class="text-xl font-bold text-gray-800">
                         <i class="fas fa-camera mr-2 text-purple-600"></i>
                         SR Creations
                     </div>
-                    <div class="hidden md:flex space-x-6">
+                    <div class="hidden md:flex space-x-4">
                         <a href="#home-page" class="text-gray-700 hover:text-purple-600 transition duration-300">Home</a>
                         <a href="#about-page" class="text-gray-700 hover:text-purple-600 transition duration-300">About</a>
                         <a href="#services-page" class="text-gray-700 hover:text-purple-600 transition duration-300">Services</a>
@@ -141,17 +140,17 @@
                     </div>
                     <div class="md:hidden">
                         <button id="mobile-menu-button" class="text-gray-700 hover:text-purple-600">
-                            <i class="fas fa-bars text-xl"></i>
+                            <i class="fas fa-bars text-lg"></i>
                         </button>
                     </div>
                 </div>
-                <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                    <a href="#home-page" class="block py-2 text-gray-700 hover:text-purple-600">Home</a>
-                    <a href="#about-page" class="block py-2 text-gray-700 hover:text-purple-600">About</a>
-                    <a href="#services-page" class="block py-2 text-gray-700 hover:text-purple-600">Services</a>
-                    <a href="#gallery-page" class="block py-2 text-gray-700 hover:text-purple-600">Gallery</a>
-                    <a href="#booking-page" class="block py-2 text-gray-700 hover:text-purple-600">Book Now</a>
-                    <a href="#contact-page" class="block py-2 text-gray-700 hover:text-purple-600">Contact</a>
+                <div id="mobile-menu" class="hidden md:hidden mt-3 pb-3">
+                    <a href="#home-page" class="block py-1 text-gray-700 hover:text-purple-600">Home</a>
+                    <a href="#about-page" class="block py-1 text-gray-700 hover:text-purple-600">About</a>
+                    <a href="#services-page" class="block py-1 text-gray-700 hover:text-purple-600">Services</a>
+                    <a href="#gallery-page" class="block py-1 text-gray-700 hover:text-purple-600">Gallery</a>
+                    <a href="#booking-page" class="block py-1 text-gray-700 hover:text-purple-600">Book Now</a>
+                    <a href="#contact-page" class="block py-1 text-gray-700 hover:text-purple-600">Contact</a>
                 </div>
             </div>
         </nav>
@@ -159,18 +158,18 @@
         <!-- Hero Section -->
         <section id="home" class="relative h-screen hero-bg flex items-center">
             <div class="hero-overlay absolute inset-0"></div>
-            <div class="container mx-auto px-6 relative z-10 text-center text-white">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-pulse">
+            <div class="container mx-auto px-4 relative z-10 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-pulse">
                     Capture Life's Moments
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-                    Professional Photography & Videography Services for Weddings, Events, Portraits, and Commercial Projects
+                <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">
+                    Professional Photography & Videography Services
                 </p>
-                <div class="space-x-4">
-                    <a href="#gallery-page" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-block">
+                <div class="space-x-2">
+                    <a href="#gallery-page" class="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-block text-sm">
                         View Portfolio
                     </a>
-                    <a href="#booking-page" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition duration-300 inline-block">
+                    <a href="#booking-page" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition duration-300 inline-block text-sm">
                         Book Session
                     </a>
                 </div>
@@ -179,32 +178,32 @@
     </div>
 
     <!-- About Page -->
-    <div id="about-page" class="py-20 bg-gray-50">
-        <section id="about" class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">About SR Creations</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
+    <div id="about-page" class="py-16 bg-gray-50">
+        <section id="about" class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-3">About SR Creations</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop" alt="Professional Photographer" class="rounded-lg shadow-lg w-full">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="px-4">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Professional Photographer" class="rounded-lg shadow-md w-full">
                 </div>
                 <div>
-                    <h3 class="text-3xl font-semibold text-gray-800 mb-6">Passionate Visual Storyteller</h3>
-                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                        With over 8 years of experience in photography and videography, I specialize in capturing authentic moments that tell your unique story. From intimate weddings to corporate events, my goal is to preserve memories that will last a lifetime.
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Passionate Visual Storyteller</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        With over 8 years of experience, I capture authentic moments that tell your unique story. From weddings to corporate events, my goal is to preserve memories for a lifetime.
                     </p>
-                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                        I believe every moment deserves to be captured with artistic vision and technical excellence. My approach combines creative composition with the latest equipment to deliver stunning results that exceed expectations.
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I combine creative composition with the latest equipment to deliver stunning results that exceed expectations.
                     </p>
-                    <div class="grid grid-cols-2 gap-6">
+                    <div class="grid grid-cols-2 gap-4">
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-purple-600 mb-2">500+</div>
-                            <div class="text-gray-600">Happy Clients</div>
+                            <div class="text-2xl font-bold text-purple-600 mb-1">500+</div>
+                            <div class="text-gray-600 text-sm">Happy Clients</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-purple-600 mb-2">1000+</div>
-                            <div class="text-gray-600">Projects Completed</div>
+                            <div class="text-2xl font-bold text-purple-600 mb-1">1000+</div>
+                            <div class="text-gray-600 text-sm">Projects Done</div>
                         </div>
                     </div>
                 </div>
@@ -212,313 +211,207 @@
         </section>
 
         <!-- Our Team Section -->
-        <section id="team" class="container mx-auto px-6 mt-20">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Team</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
+        <section id="team" class="container mx-auto px-4 mt-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-3">Our Team</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
             </div>
-            <div class="grid md:grid-cols-3 gap-12">
+            <div class="grid md:grid-cols-3 gap-8">
                 <!-- Team Member 1 -->
                 <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?w=500&h=500&fit=crop&crop=face" alt="Team Member 1" class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg">
-                    <h3 class="text-xl font-semibold text-gray-800">John Doe</h3>
-                    <p class="text-gray-500 mb-2">Lead Videographer</p>
-                    <p class="text-gray-600 italic">"I believe video is the most powerful way to tell a story. My passion is to create cinematic films that are both beautiful and emotionally resonant."</p>
+                    <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?w=400&h=400&fit=crop&crop=face" alt="Team Member 1" class="w-32 h-32 rounded-full mx-auto mb-3 shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-800">John Doe</h3>
+                    <p class="text-gray-500 text-sm mb-1">Lead Videographer</p>
+                    <p class="text-gray-600 italic text-sm">"I create cinematic films that are both beautiful and emotionally resonant."</p>
                 </div>
                 <!-- Team Member 2 -->
                 <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&h=500&fit=crop&crop=face" alt="Team Member 2" class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg">
-                    <h3 class="text-xl font-semibold text-gray-800">Jane Smith</h3>
-                    <p class="text-gray-500 mb-2">Lead Photographer</p>
-                    <p class="text-gray-600 italic">"For me, photography is about capturing the fleeting, candid moments that reveal the true essence of a person or event. I love finding the light in every shot."</p>
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face" alt="Team Member 2" class="w-32 h-32 rounded-full mx-auto mb-3 shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-800">Jane Smith</h3>
+                    <p class="text-gray-500 text-sm mb-1">Lead Photographer</p>
+                    <p class="text-gray-600 italic text-sm">"Photography is about capturing the fleeting, candid moments that reveal true essence."</p>
                 </div>
                 <!-- Team Member 3 -->
                 <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&h=500&fit=crop&crop=face" alt="Team Member 3" class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg">
-                    <h3 class="text-xl font-semibold text-gray-800">Mike Johnson</h3>
-                    <p class="text-gray-500 mb-2">Photo Editor & Retoucher</p>
-                    <p class="text-gray-600 italic">"The magic happens in the details. I meticulously enhance each photo to ensure the final product is flawless and truly breathtaking."</p>
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face" alt="Team Member 3" class="w-32 h-32 rounded-full mx-auto mb-3 shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-800">Mike Johnson</h3>
+                    <p class="text-gray-500 text-sm mb-1">Photo Editor</p>
+                    <p class="text-gray-600 italic text-sm">"The magic happens in the details. I enhance each photo to ensure the final product is flawless."</p>
                 </div>
             </div>
         </section>
     </div>
 
     <!-- Services Page -->
-    <div id="services-page" class="py-20 bg-white">
-        <section id="services" class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-6"></div>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-                    Professional photography and videography services tailored to capture your special moments
+    <div id="services-page" class="py-16 bg-white">
+        <section id="services" class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-3">Our Services</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-xl mx-auto">
+                    Tailored photography and videography to capture your special moments.
                 </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card-hover bg-white rounded-lg shadow-lg p-8 text-center border">
-                    <div class="text-5xl text-purple-600 mb-6">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Wedding Photography</h3>
-                    <p class="text-gray-600 mb-6">
-                        Capture your special day with romantic and timeless wedding photography that tells your love story.
-                    </p>
-                    <div class="text-3xl font-bold text-purple-600 mb-4">Starting from ₹1,00,000</div>
-                    <p class="text-sm text-gray-500 mb-6">Full day coverage + 500 edited photos</p>
-                    <button class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">
-                        Learn More
-                    </button>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
+                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-heart"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Weddings</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Timeless photography that tells your love story.</p>
+                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹1L</div>
+                    <p class="text-xs text-gray-500 mb-4">Full day + 500 edited photos</p>
+                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
                 </div>
-                
-                <div class="card-hover bg-white rounded-lg shadow-lg p-8 text-center border">
-                    <div class="text-5xl text-purple-600 mb-6">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Event Videography</h3>
-                    <p class="text-gray-600 mb-6">
-                        Professional event videography to capture the energy and emotions of your special occasions.
-                    </p>
-                    <div class="text-3xl font-bold text-purple-600 mb-4">Starting from ₹65,000</div>
-                    <p class="text-sm text-gray-500 mb-6">3-5 hour coverage + edited highlight reel</p>
-                    <button class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">
-                        Learn More
-                    </button>
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
+                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-video"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Videography</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Capturing the energy and emotions of your event.</p>
+                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹65k</div>
+                    <p class="text-xs text-gray-500 mb-4">3-5 hr coverage + highlight reel</p>
+                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
                 </div>
-                
-                <div class="card-hover bg-white rounded-lg shadow-lg p-8 text-center border">
-                    <div class="text-5xl text-purple-600 mb-6">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Portrait Sessions</h3>
-                    <p class="text-gray-600 mb-6">
-                        Personal and professional portrait photography sessions in studio or on location.
-                    </p>
-                    <div class="text-3xl font-bold text-purple-600 mb-4">Starting from ₹25,000</div>
-                    <p class="text-sm text-gray-500 mb-6">1 hour session + 50 edited photos</p>
-                    <button class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">
-                        Learn More
-                    </button>
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
+                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-user"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Portraits</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Personal and professional sessions in studio or on location.</p>
+                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹25k</div>
+                    <p class="text-xs text-gray-500 mb-4">1 hr session + 50 edited photos</p>
+                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
                 </div>
-                
-                <div class="card-hover bg-white rounded-lg shadow-lg p-8 text-center border">
-                    <div class="text-5xl text-purple-600 mb-6">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Commercial</h3>
-                    <p class="text-gray-600 mb-6">
-                        Corporate photography and videography for businesses, products, and promotional content.
-                    </p>
-                    <div class="text-3xl font-bold text-purple-600 mb-4">Starting from ₹40,000</div>
-                    <p class="text-sm text-gray-500 mb-6">Half day + edited deliverables</p>
-                    <button class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">
-                        Learn More
-                    </button>
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
+                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-building"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Commercial</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Corporate photography for businesses and products.</p>
+                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹40k</div>
+                    <p class="text-xs text-gray-500 mb-4">Half day + edited deliverables</p>
+                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
                 </div>
-                
-                <div class="card-hover bg-white rounded-lg shadow-lg p-8 text-center border">
-                    <div class="text-5xl text-purple-600 mb-6">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Family Photos</h3>
-                    <p class="text-gray-600 mb-6">
-                        Beautiful family photography sessions to capture precious moments with your loved ones.
-                    </p>
-                    <div class="text-3xl font-bold text-purple-600 mb-4">Starting from ₹30,000</div>
-                    <p class="text-sm text-gray-500 mb-6">1.5 hour session + 75 edited photos</p>
-                    <button class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">
-                        Learn More
-                    </button>
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
+                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-users"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Family</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Beautiful family sessions to capture precious moments.</p>
+                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹30k</div>
+                    <p class="text-xs text-gray-500 mb-4">1.5 hr session + 75 edited photos</p>
+                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
                 </div>
-                
-                <div class="card-hover bg-white rounded-lg shadow-lg p-8 text-center border">
-                    <div class="text-5xl text-purple-600 mb-6">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Graduation</h3>
-                    <p class="text-gray-600 mb-6">
-                        Celebrate your achievements with professional graduation photography sessions.
-                    </p>
-                    <div class="text-3xl font-bold text-purple-600 mb-4">Starting from ₹20,000</div>
-                    <p class="text-sm text-gray-500 mb-6">45 minute session + 40 edited photos</p>
-                    <button class="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition duration-300">
-                        Learn More
-                    </button>
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
+                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Graduation</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Celebrate your achievements with professional photos.</p>
+                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹20k</div>
+                    <p class="text-xs text-gray-500 mb-4">45 min session + 40 edited photos</p>
+                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
                 </div>
             </div>
         </section>
     </div>
 
     <!-- Gallery Page -->
-    <div id="gallery-page" class="py-20 bg-gray-50">
-        <section id="gallery" class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Portfolio Gallery</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-6"></div>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
-                    Explore our collection of captured moments and creative visual stories
+    <div id="gallery-page" class="py-16 bg-gray-50">
+        <section id="gallery" class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-3">Portfolio</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-4"></div>
+                <p class="text-gray-600 max-w-xl mx-auto mb-6">
+                    Explore our collection of captured moments.
                 </p>
-                
-                <!-- Gallery Categories -->
-                <div class="flex flex-wrap justify-center space-x-4 mb-12">
-                    <button class="gallery-filter bg-purple-600 text-white px-6 py-2 rounded-full mb-2 hover:bg-purple-700 transition duration-300" data-filter="all">
-                        All
-                    </button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full mb-2 hover:bg-purple-600 hover:text-white transition duration-300" data-filter="wedding">
-                        Weddings
-                    </button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full mb-2 hover:bg-purple-600 hover:text-white transition duration-300" data-filter="portrait">
-                        Portraits
-                    </button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full mb-2 hover:bg-purple-600 hover:text-white transition duration-300" data-filter="event">
-                        Events
-                    </button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full mb-2 hover:bg-purple-600 hover:text-white transition duration-300" data-filter="commercial">
-                        Commercial
-                    </button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full mb-2 hover:bg-purple-600 hover:text-white transition duration-300" data-filter="music-video">
-                        Music Video
-                    </button>
+                <div class="flex flex-wrap justify-center space-x-2 mb-8">
+                    <button class="gallery-filter bg-purple-600 text-white px-4 py-1 rounded-full mb-2 text-sm" data-filter="all">All</button>
+                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="wedding">Weddings</button>
+                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="portrait">Portraits</button>
+                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="event">Events</button>
+                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="commercial">Commercial</button>
+                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="music-video">Music Video</button>
                 </div>
             </div>
-            
-            <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <div class="gallery-item wedding" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop" alt="Wedding Photography" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop" alt="Wedding" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
-                
                 <div class="gallery-item portrait" data-category="portrait">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop" alt="Portrait Photography" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop" alt="Portrait" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
-                
                 <div class="gallery-item event" data-category="event">
-                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop" alt="Event Photography" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop" alt="Event" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
-                
                 <div class="gallery-item wedding" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=300&fit=crop" alt="Wedding Photography" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=300&fit=crop" alt="Wedding" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
-                
                 <div class="gallery-item commercial" data-category="commercial">
-                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop" alt="Commercial Photography" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop" alt="Commercial" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
-                
                 <div class="gallery-item portrait" data-category="portrait">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop" alt="Portrait Photography" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop" alt="Portrait" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
-                
-                <div class="gallery-item event" data-category="event">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=300&fit=crop" alt="Event Photography" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                 <div class="gallery-item event" data-category="event">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=300&fit=crop" alt="Event" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
-                
                 <div class="gallery-item wedding" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=300&fit=crop" alt="Wedding Photography" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=300&fit=crop" alt="Wedding" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
-                
                 <div class="gallery-item commercial" data-category="commercial">
-                    <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=400&h=300&fit=crop" alt="Commercial Photography" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=400&h=300&fit=crop" alt="Commercial" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
-                
                 <div class="gallery-item music-video" data-category="music-video">
-                    <img src="https://images.unsplash.com/photo-1516223234255-38c5044965e6?w=400&h=300&fit=crop" alt="Music Video" class="w-full h-64 object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1516223234255-38c5044965e6?w=400&h=300&fit=crop" alt="Music Video" class="w-full h-48 object-cover rounded-md">
+                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
                 </div>
             </div>
         </section>
     </div>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Client Testimonials</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-3">Testimonials</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
-                    <div class="text-yellow-400 text-2xl mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="text-yellow-400 text-lg mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "SR Creations captured our wedding day perfectly! The photos are absolutely stunning and we couldn't be happier with the results. Professional, creative, and a joy to work with."
-                    </p>
+                    <p class="text-gray-600 mb-4 italic text-sm">"SR Creations captured our wedding perfectly! The photos are stunning and they were a joy to work with."</p>
                     <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face" alt="Sarah Johnson" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop&crop=face" alt="Sarah J." class="w-10 h-10 rounded-full mr-3">
                         <div>
-                            <div class="font-semibold text-gray-800">Sarah Johnson</div>
-                            <div class="text-gray-500 text-sm">Bride</div>
+                            <div class="font-semibold text-gray-800">Sarah J.</div>
+                            <div class="text-gray-500 text-xs">Bride</div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
-                    <div class="text-yellow-400 text-2xl mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="text-yellow-400 text-lg mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "Amazing corporate headshots! The photographer made me feel comfortable and the results exceeded my expectations. Will definitely book again for future projects."
-                    </p>
+                    <p class="text-gray-600 mb-4 italic text-sm">"Amazing corporate headshots! The photographer made me feel comfortable and the results were exceptional."</p>
                     <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="Michael Chen" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="Michael C." class="w-10 h-10 rounded-full mr-3">
                         <div>
-                            <div class="font-semibold text-gray-800">Michael Chen</div>
-                            <div class="text-gray-500 text-sm">CEO, TechStart</div>
+                            <div class="font-semibold text-gray-800">Michael C.</div>
+                            <div class="text-gray-500 text-xs">CEO, TechStart</div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
-                    <div class="text-yellow-400 text-2xl mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="text-yellow-400 text-lg mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-600 mb-6 italic">
-                        "Our family photos turned out beautiful! The photographer was patient with our kids and captured genuine moments. We treasure these memories forever."
-                    </p>
+                    <p class="text-gray-600 mb-4 italic text-sm">"Our family photos turned out beautiful! The photographer was patient with our kids and captured genuine moments."</p>
                     <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="Emily Rodriguez" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face" alt="Emily R." class="w-10 h-10 rounded-full mr-3">
                         <div>
-                            <div class="font-semibold text-gray-800">Emily Rodriguez</div>
-                            <div class="text-gray-500 text-sm">Mother of 3</div>
+                            <div class="font-semibold text-gray-800">Emily R.</div>
+                            <div class="text-gray-500 text-xs">Mother of 3</div>
                         </div>
                     </div>
                 </div>
@@ -527,86 +420,62 @@
     </section>
 
     <!-- Booking Page -->
-    <div id="booking-page" class="py-20 gradient-bg">
-        <section id="booking" class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-4">Book Your Session</h2>
-                <div class="w-24 h-1 bg-white mx-auto mb-6"></div>
-                <p class="text-white text-lg max-w-2xl mx-auto">
-                    Ready to capture your special moments? Fill out the form below and we'll get back to you within 24 hours.
+    <div id="booking-page" class="py-16 gradient-bg">
+        <section id="booking" class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-3">Book Your Session</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-4"></div>
+                <p class="text-white max-w-xl mx-auto">
+                    Fill out the form below and we'll get back to you within 24 hours.
                 </p>
             </div>
-            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-xl p-8">
-                <form id="booking-form" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
+            <div class="max-w-xl mx-auto bg-white rounded-lg shadow-lg p-6">
+                <form id="booking-form" class="space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
                         <div>
-                            <label for="firstName" class="block text-gray-700 font-semibold mb-2">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
+                            <label for="firstName" class="block text-gray-700 font-semibold mb-1 text-sm">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
                         </div>
                         <div>
-                            <label for="lastName" class="block text-gray-700 font-semibold mb-2">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="email" class="block text-gray-700 font-semibold mb-2">Email *</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
+                            <label for="lastName" class="block text-gray-700 font-semibold mb-1 text-sm">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
                         </div>
                     </div>
-                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="email" class="block text-gray-700 font-semibold mb-1 text-sm">Email *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-semibold mb-1 text-sm">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
+                        </div>
+                    </div>
                     <div>
-                        <label for="service" class="block text-gray-700 font-semibold mb-2">Service Type *</label>
-                        <select id="service" name="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
+                        <label for="service" class="block text-gray-700 font-semibold mb-1 text-sm">Service Type *</label>
+                        <select id="service" name="service" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
                             <option value="">Select a service</option>
-                            <option value="wedding">Wedding Photography</option>
-                            <option value="event-video">Event Videography</option>
-                            <option value="portrait">Portrait Session</option>
-                            <option value="commercial">Commercial Photography</option>
-                            <option value="family">Family Photos</option>
-                            <option value="graduation">Graduation Photos</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="event-video">Videography</option>
+                            <option value="portrait">Portrait</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="family">Family</option>
+                            <option value="graduation">Graduation</option>
                             <option value="event-planner">Need an event planner</option>
                         </select>
                     </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="eventDate" class="block text-gray-700 font-semibold mb-2">Preferred Date *</label>
-                            <input type="date" id="eventDate" name="eventDate" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 font-semibold mb-2">Preferred Time</label>
-                            <div class="flex items-center space-x-2">
-                                <input type="number" id="eventHour" name="eventHour" placeholder="HH" min="1" max="12" class="w-1/3 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
-                                <span class="text-gray-500">:</span>
-                                <input type="number" id="eventMinute" name="eventMinute" placeholder="MM" min="0" max="59" class="w-1/3 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
-                                <select id="eventAmPm" name="eventAmPm" class="w-1/3 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
-                                    <option value="am">AM</option>
-                                    <option value="pm">PM</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div>
-                        <label for="location" class="block text-gray-700 font-semibold mb-2">Event Location</label>
-                        <input type="text" id="location" name="location" placeholder="Address or venue name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300">
+                        <label for="eventDate" class="block text-gray-700 font-semibold mb-1 text-sm">Preferred Date *</label>
+                        <input type="date" id="eventDate" name="eventDate" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
                     </div>
-                    
                     <div>
-                        <label for="message" class="block text-gray-700 font-semibold mb-2">Additional Details</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Tell us more about your event, special requests, or any questions you have..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-600 transition duration-300"></textarea>
+                        <label for="message" class="block text-gray-700 font-semibold mb-1 text-sm">Additional Details</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Tell us more about your event..." class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"></textarea>
                     </div>
-                    
                     <div class="text-center">
-                        <button type="submit" class="bg-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-purple-700 transition duration-300 shadow-lg">
+                        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition duration-300 shadow-md text-sm">
                             <i class="fas fa-paper-plane mr-2"></i>
-                            Send Booking Request
+                            Send Request
                         </button>
                     </div>
                 </form>
@@ -615,115 +484,79 @@
     </div>
 
     <!-- Contact Page -->
-    <div id="contact-page" class="py-20 bg-gray-50">
-        <section id="contact" class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
+    <div id="contact-page" class="py-16 bg-gray-50">
+        <section id="contact" class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-3">Get In Touch</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="text-center">
-                    <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <i class="fas fa-map-marker-alt text-3xl text-purple-600"></i>
+                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i class="fas fa-map-marker-alt text-2xl text-purple-600"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Studio Location</h3>
-                    <p class="text-gray-600">
-                        123 Photography Lane<br>
-                        Creative District<br>
-                        New York, NY 10001
-                    </p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Location</h3>
+                    <p class="text-gray-600 text-sm">123 Photography Lane, New York</p>
                 </div>
-                
                 <div class="text-center">
-                    <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <i class="fas fa-phone text-3xl text-purple-600"></i>
+                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i class="fas fa-phone text-2xl text-purple-600"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Phone & Email</h3>
-                    <p class="text-gray-600">
-                        <a href="tel:+1234567890" class="hover:text-purple-600 transition duration-300">(123) 456-7890</a><br>
-                        <a href="mailto:info@srcreations.com" class="hover:text-purple-600 transition duration-300">info@srcreations.com</a>
-                    </p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Contact</h3>
+                    <p class="text-gray-600 text-sm"><a href="tel:+1234567890" class="hover:text-purple-600">(123) 456-7890</a></p>
+                    <p class="text-gray-600 text-sm"><a href="mailto:info@srcreations.com" class="hover:text-purple-600">info@srcreations.com</a></p>
                 </div>
-                
                 <div class="text-center">
-                    <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <i class="fas fa-clock text-3xl text-purple-600"></i>
+                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
+                        <i class="fas fa-clock text-2xl text-purple-600"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Business Hours</h3>
-                    <p class="text-gray-600">
-                        Monday - Friday: 9AM - 6PM<br>
-                        Saturday: 10AM - 4PM<br>
-                        Sunday: By Appointment
-                    </p>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Hours</h3>
+                    <p class="text-gray-600 text-sm">Mon - Fri: 9AM - 6PM</p>
+                    <p class="text-gray-600 text-sm">Sat: 10AM - 4PM</p>
                 </div>
             </div>
         </section>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
                 <div>
-                    <div class="text-2xl font-bold mb-4">
-                        <i class="fas fa-camera mr-2 text-purple-400"></i>
-                        SR Creations
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        Professional photography and videography services for all your special moments.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition duration-300">
-                            <i class="fab fa-facebook text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition duration-300">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition duration-300">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400 transition duration-300">
-                            <i class="fab fa-youtube text-xl"></i>
-                        </a>
+                    <h3 class="text-lg font-semibold mb-3">SR Creations</h3>
+                    <p class="text-gray-400 text-sm mb-3">Capturing life's special moments.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-purple-400"><i class="fab fa-facebook text-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-purple-400"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-purple-400"><i class="fab fa-twitter text-lg"></i></a>
                     </div>
                 </div>
-                
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Services</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#services-page" class="hover:text-white transition duration-300">Wedding Photography</a></li>
-                        <li><a href="#services-page" class="hover:text-white transition duration-300">Event Videography</a></li>
-                        <li><a href="#services-page" class="hover:text-white transition duration-300">Portrait Sessions</a></li>
-                        <li><a href="#services-page" class="hover:text-white transition duration-300">Commercial Photography</a></li>
-                        <li><a href="#services-page" class="hover:text-white transition duration-300">Family Photos</a></li>
+                    <h3 class="text-lg font-semibold mb-3">Services</h3>
+                    <ul class="space-y-1 text-gray-400 text-sm">
+                        <li><a href="#services-page" class="hover:text-white">Weddings</a></li>
+                        <li><a href="#services-page" class="hover:text-white">Videography</a></li>
+                        <li><a href="#services-page" class="hover:text-white">Portraits</a></li>
                     </ul>
                 </div>
-                
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#about-page" class="hover:text-white transition duration-300">About Us</a></li>
-                        <li><a href="#gallery-page" class="hover:text-white transition duration-300">Portfolio</a></li>
-                        <li><a href="#booking-page" class="hover:text-white transition duration-300">Book Session</a></li>
-                        <li><a href="#contact-page" class="hover:text-white transition duration-300">Contact</a></li>
-                        <li><a href="#" class="hover:text-white transition duration-300">FAQ</a></li>
+                    <h3 class="text-lg font-semibold mb-3">Links</h3>
+                    <ul class="space-y-1 text-gray-400 text-sm">
+                        <li><a href="#about-page" class="hover:text-white">About Us</a></li>
+                        <li><a href="#gallery-page" class="hover:text-white">Portfolio</a></li>
+                        <li><a href="#booking-page" class="hover:text-white">Book Now</a></li>
                     </ul>
                 </div>
-                
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
-                    <p class="text-gray-400 mb-4">Subscribe to get updates on our latest work and special offers.</p>
+                    <h3 class="text-lg font-semibold mb-3">Newsletter</h3>
                     <div class="flex">
-                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-purple-400">
-                        <button class="bg-purple-600 px-4 py-2 rounded-r-lg hover:bg-purple-700 transition duration-300">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                        <input type="email" placeholder="Your email" class="flex-1 px-3 py-1 rounded-l-md bg-gray-800 text-sm">
+                        <button class="bg-purple-600 px-3 py-1 rounded-r-md"><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2024 SR Creations Photography & Videography. All rights reserved.</p>
+            <div class="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400 text-xs">
+                <p>© 2024 SR Creations. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -735,50 +568,35 @@
     </div>
 
     <script>
-        // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const target = document.querySelector(targetId);
                 if (target) {
-                    // Hide mobile menu on click
                     const mobileMenu = document.getElementById('mobile-menu');
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
-                    
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Gallery filtering
         const filterButtons = document.querySelectorAll('.gallery-filter');
         const galleryItems = document.querySelectorAll('.gallery-item');
-
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.getAttribute('data-filter');
-                
-                // Update active button
                 filterButtons.forEach(btn => {
                     btn.classList.remove('bg-purple-600', 'text-white');
                     btn.classList.add('bg-gray-200', 'text-gray-700');
                 });
-                button.classList.remove('bg-gray-200', 'text-gray-700');
                 button.classList.add('bg-purple-600', 'text-white');
-                
-                // Filter gallery items
                 galleryItems.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
                         item.style.display = 'block';
@@ -789,89 +607,27 @@
             });
         });
 
-        // Lightbox functionality
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const closeLightbox = document.querySelector('.close-lightbox');
-
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
-                const img = item.querySelector('img');
-                lightboxImg.src = img.src;
+                lightboxImg.src = item.querySelector('img').src;
                 lightbox.style.display = 'block';
             });
         });
-
-        closeLightbox.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-        });
-
+        closeLightbox.addEventListener('click', () => lightbox.style.display = 'none');
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-            }
+            if (e.target === lightbox) lightbox.style.display = 'none';
         });
 
-        // Form validation and submission
         document.getElementById('booking-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const formData = new FormData(this);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
-            
-            const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'service', 'eventDate'];
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                const input = document.getElementById(field);
-                if (!input.value.trim()) {
-                    input.style.borderColor = '#ef4444';
-                    isValid = false;
-                } else {
-                    input.style.borderColor = '#d1d5db';
-                }
-            });
-            
-            if (isValid) {
-                alert('Thank you for your booking request! We will contact you within 24 hours to confirm your appointment.');
-                this.reset();
-                 requiredFields.forEach(field => {
-                    document.getElementById(field).style.borderColor = '#d1d5db';
-                });
-            } else {
-                alert('Please fill in all required fields.');
-            }
+            alert('Thank you for your booking request! We will be in touch shortly.');
+            this.reset();
         });
 
-        // Newsletter subscription (footer)
-        document.querySelector('footer button').addEventListener('click', function(e) {
-            e.preventDefault();
-            const emailInput = this.previousElementSibling;
-            if (emailInput.value.trim() && emailInput.value.includes('@')) {
-                alert('Thank you for subscribing to our newsletter!');
-                emailInput.value = '';
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        });
-
-        // Set minimum date to today for booking form
         document.getElementById('eventDate').min = new Date().toISOString().split('T')[0];
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-white', 'shadow-lg');
-            } else {
-                if (document.getElementById('home-page').getBoundingClientRect().top === 0) {
-                    nav.classList.remove('bg-white', 'shadow-lg');
-                }
-            }
-        });
     </script>
 </body>
-</html>```
+</html>
