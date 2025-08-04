@@ -6,65 +6,111 @@
     <title>SR Creations - Professional Photography & Videography</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        /* UPDATED: Removed 'background-attachment: fixed' for better mobile responsiveness */
-        .hero-bg {
-            background-image: url('CamBG.jpg');
-            background-size: cover;
-            background-position: center;
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #B8941F;
+            --light-gold: #F4E4BC;
+            --deep-black: #0A0A0A;
+            --soft-black: #1A1A1A;
+            --medium-gray: #2D2D2D;
+            --light-gray: #F8F9FA;
         }
 
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        * {
+            scroll-behavior: smooth;
         }
-        
-        .hero-overlay {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
-        
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+        }
+
+        .gradient-dark {
+            background: linear-gradient(135deg, var(--deep-black), var(--soft-black));
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.6)), url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=2940&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
         .card-hover {
             transition: all 0.3s ease;
         }
-        
+
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
         }
-        
-        .gallery-item {
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            transition: all 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .navbar-glass {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .portfolio-item {
             position: relative;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.3s ease;
         }
-        
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        
-        .gallery-overlay {
+
+        .portfolio-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(102,126,234,0.8), rgba(118,75,162,0.8));
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.9), rgba(184, 148, 31, 0.9));
+            opacity: 0;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
-        
-        .gallery-item:hover .gallery-overlay {
+
+        .portfolio-item:hover .portfolio-overlay {
             opacity: 1;
         }
-        
+
+        .portfolio-item img {
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
         .lightbox {
             display: none;
             position: fixed;
@@ -73,345 +119,449 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.9);
+            background-color: rgba(0, 0, 0, 0.9);
         }
-        
+
         .lightbox-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 600px;
-            max-height: 80%;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
         }
-        
+
         .close-lightbox {
             position: absolute;
-            top: 15px;
+            top: 20px;
             right: 35px;
-            color: #f1f1f1;
-            font-size: 30px;
-            font-weight: bold;
+            color: white;
+            font-size: 40px;
             cursor: pointer;
         }
-        
-        .scroll-smooth {
-            scroll-behavior: smooth;
+
+        .animate-counter {
+            font-weight: 700;
+            font-size: 2.5rem;
         }
-        
-        @media print {
-            .no-print {
-                display: none;
+
+        .pricing-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-featured {
+            border: 2px solid var(--primary-gold);
+            position: relative;
+        }
+
+        .pricing-featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--primary-gold);
+            color: var(--deep-black);
+            padding: 5px 40px;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-attachment: scroll;
             }
-            
-            body {
-                font-size: 10px;
-                line-height: 1.2;
-            }
-            
-            .container {
-                max-width: none;
-                padding: 0;
+        }
+
+        .star-rating {
+            color: var(--primary-gold);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 3rem 0;
             }
         }
     </style>
 </head>
-<body class="scroll-smooth bg-gray-50 text-sm">
-    <!-- Home Page -->
-    <div id="home-page">
-        <!-- Navigation -->
-        <nav class="fixed w-full z-50 bg-white shadow-md no-print">
-            <div class="container mx-auto px-4 py-2">
-                <div class="flex justify-between items-center">
-                    <div class="text-xl font-bold text-gray-800">
-                        <i class="fas fa-camera mr-2 text-purple-600"></i>
-                        SR Creations
-                    </div>
-                    <div class="hidden md:flex space-x-4">
-                        <a href="#home-page" class="text-gray-700 hover:text-purple-600 transition duration-300">Home</a>
-                        <a href="#about-page" class="text-gray-700 hover:text-purple-600 transition duration-300">About</a>
-                        <a href="#services-page" class="text-gray-700 hover:text-purple-600 transition duration-300">Services</a>
-                        <a href="#gallery-page" class="text-gray-700 hover:text-purple-600 transition duration-300">Gallery</a>
-                        <a href="#booking-page" class="text-gray-700 hover:text-purple-600 transition duration-300">Book Now</a>
-                        <a href="#contact-page" class="text-gray-700 hover:text-purple-600 transition duration-300">Contact</a>
-                    </div>
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" class="text-gray-700 hover:text-purple-600">
-                            <i class="fas fa-bars text-lg"></i>
-                        </button>
-                    </div>
-                </div>
-                <div id="mobile-menu" class="hidden md:hidden mt-3 pb-3">
-                    <a href="#home-page" class="block py-1 text-gray-700 hover:text-purple-600">Home</a>
-                    <a href="#about-page" class="block py-1 text-gray-700 hover:text-purple-600">About</a>
-                    <a href="#services-page" class="block py-1 text-gray-700 hover:text-purple-600">Services</a>
-                    <a href="#gallery-page" class="block py-1 text-gray-700 hover:text-purple-600">Gallery</a>
-                    <a href="#booking-page" class="block py-1 text-gray-700 hover:text-purple-600">Book Now</a>
-                    <a href="#contact-page" class="block py-1 text-gray-700 hover:text-purple-600">Contact</a>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <section id="home" class="relative h-[90vh] md:h-screen hero-bg flex items-center">
-            <div class="hero-overlay absolute inset-0"></div>
-            <div class="container mx-auto px-4 relative z-10 text-center text-white">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-pulse">
-                    Capture Life's Moments
-                </h1>
-                <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">
-                    Professional Photography & Videography Services
-                </p>
-                <div class="space-x-2">
-                    <a href="#gallery-page" class="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-block text-sm">
-                        View Portfolio
-                    </a>
-                    <a href="#booking-page" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition duration-300 inline-block text-sm">
-                        Book Session
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- About Page -->
-    <div id="about-page" class="py-16 bg-gray-50">
-        <section id="about" class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-3">About SR Creations</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="px-4">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Professional Photographer" class="rounded-lg shadow-md w-full">
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Passionate Visual Storyteller</h3>
-                    <p class="text-gray-600 mb-4 leading-relaxed">
-                        With over 8 years of experience, I capture authentic moments that tell your unique story. From weddings to corporate events, my goal is to preserve memories for a lifetime.
-                    </p>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        I combine creative composition with the latest equipment to deliver stunning results that exceed expectations.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-purple-600 mb-1">500+</div>
-                            <div class="text-gray-600 text-sm">Happy Clients</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-bold text-purple-600 mb-1">1000+</div>
-                            <div class="text-gray-600 text-sm">Projects Done</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Our Team Section -->
-        <section id="team" class="container mx-auto px-4 mt-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-3">Our Team</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Team Member 1 -->
-                <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?w=400&h=400&fit=crop&crop=face" alt="Team Member 1" class="w-32 h-32 rounded-full mx-auto mb-3 shadow-md">
-                    <h3 class="text-lg font-semibold text-gray-800">John Doe</h3>
-                    <p class="text-gray-500 text-sm mb-1">Lead Videographer</p>
-                    <p class="text-gray-600 italic text-sm">"I create cinematic films that are both beautiful and emotionally resonant."</p>
-                </div>
-                <!-- Team Member 2 -->
-                <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face" alt="Team Member 2" class="w-32 h-32 rounded-full mx-auto mb-3 shadow-md">
-                    <h3 class="text-lg font-semibold text-gray-800">Jane Smith</h3>
-                    <p class="text-gray-500 text-sm mb-1">Lead Photographer</p>
-                    <p class="text-gray-600 italic text-sm">"Photography is about capturing the fleeting, candid moments that reveal true essence."</p>
-                </div>
-                <!-- Team Member 3 -->
-                <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face" alt="Team Member 3" class="w-32 h-32 rounded-full mx-auto mb-3 shadow-md">
-                    <h3 class="text-lg font-semibold text-gray-800">Mike Johnson</h3>
-                    <p class="text-gray-500 text-sm mb-1">Photo Editor</p>
-                    <p class="text-gray-600 italic text-sm">"The magic happens in the details. I enhance each photo to ensure the final product is flawless."</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Services Page -->
-    <div id="services-page" class="py-16 bg-white">
-        <section id="services" class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-3">Our Services</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-xl mx-auto">
-                    Tailored photography and videography to capture your special moments.
-                </p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
-                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-heart"></i></div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Weddings</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Timeless photography that tells your love story.</p>
-                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹1L</div>
-                    <p class="text-xs text-gray-500 mb-4">Full day + 500 edited photos</p>
-                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
-                </div>
-                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
-                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-video"></i></div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Videography</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Capturing the energy and emotions of your event.</p>
-                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹65k</div>
-                    <p class="text-xs text-gray-500 mb-4">3-5 hr coverage + highlight reel</p>
-                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
-                </div>
-                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
-                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-user"></i></div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Portraits</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Personal and professional sessions in studio or on location.</p>
-                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹25k</div>
-                    <p class="text-xs text-gray-500 mb-4">1 hr session + 50 edited photos</p>
-                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
-                </div>
-                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
-                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-building"></i></div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Commercial</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Corporate photography for businesses and products.</p>
-                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹40k</div>
-                    <p class="text-xs text-gray-500 mb-4">Half day + edited deliverables</p>
-                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
-                </div>
-                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
-                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-users"></i></div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Family</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Beautiful family sessions to capture precious moments.</p>
-                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹30k</div>
-                    <p class="text-xs text-gray-500 mb-4">1.5 hr session + 75 edited photos</p>
-                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
-                </div>
-                <div class="card-hover bg-white rounded-lg shadow-md p-6 text-center border">
-                    <div class="text-4xl text-purple-600 mb-4"><i class="fas fa-graduation-cap"></i></div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Graduation</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Celebrate your achievements with professional photos.</p>
-                    <div class="text-2xl font-bold text-purple-600 mb-2">From ₹20k</div>
-                    <p class="text-xs text-gray-500 mb-4">45 min session + 40 edited photos</p>
-                    <button class="bg-purple-600 text-white px-5 py-2 rounded-full hover:bg-purple-700 transition duration-300 text-sm">More</button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Gallery Page -->
-    <div id="gallery-page" class="py-16 bg-gray-50">
-        <section id="gallery" class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-3">Portfolio</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-xl mx-auto mb-6">
-                    Explore our collection of captured moments.
-                </p>
-                <div class="flex flex-wrap justify-center space-x-2 mb-8">
-                    <button class="gallery-filter bg-purple-600 text-white px-4 py-1 rounded-full mb-2 text-sm" data-filter="all">All</button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="wedding">Weddings</button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="portrait">Portraits</button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="event">Events</button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="commercial">Commercial</button>
-                    <button class="gallery-filter bg-gray-200 text-gray-700 px-4 py-1 rounded-full mb-2 text-sm" data-filter="music-video">Music Video</button>
-                </div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="gallery-item wedding" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop" alt="Wedding" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-                <div class="gallery-item portrait" data-category="portrait">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=300&fit=crop" alt="Portrait" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-                <div class="gallery-item event" data-category="event">
-                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop" alt="Event" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-                <div class="gallery-item wedding" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&h=300&fit=crop" alt="Wedding" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-                <div class="gallery-item commercial" data-category="commercial">
-                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop" alt="Commercial" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-                <div class="gallery-item portrait" data-category="portrait">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop" alt="Portrait" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-                 <div class="gallery-item event" data-category="event">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=300&fit=crop" alt="Event" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-                <div class="gallery-item wedding" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=300&fit=crop" alt="Wedding" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-                <div class="gallery-item commercial" data-category="commercial">
-                    <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=400&h=300&fit=crop" alt="Commercial" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-                <div class="gallery-item music-video" data-category="music-video">
-                    <img src="https://images.unsplash.com/photo-1516223234255-38c5044965e6?w=400&h=300&fit=crop" alt="Music Video" class="w-full h-48 object-cover rounded-md">
-                    <div class="gallery-overlay rounded-md"><i class="fas fa-search-plus text-white text-2xl"></i></div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Testimonials Section -->
-    <section class="py-16 bg-white">
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 navbar-glass">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-3">Testimonials</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-display font-bold text-white">
+                    <span class="text-gradient">SR</span> Creations
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-yellow-400 transition duration-300">Home</a>
+                    <a href="#about" class="text-white hover:text-yellow-400 transition duration-300">About</a>
+                    <a href="#services" class="text-white hover:text-yellow-400 transition duration-300">Services</a>
+                    <a href="#portfolio" class="text-white hover:text-yellow-400 transition duration-300">Portfolio</a>
+                    <a href="#testimonials" class="text-white hover:text-yellow-400 transition duration-300">Reviews</a>
+                    <a href="#pricing" class="text-white hover:text-yellow-400 transition duration-300">Pricing</a>
+                    <a href="#contact" class="text-white hover:text-yellow-400 transition duration-300">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white text-2xl" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                    <div class="text-yellow-400 text-lg mb-3">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-4 italic text-sm">"SR Creations captured our wedding perfectly! The photos are stunning and they were a joy to work with."</p>
-                    <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&h=50&fit=crop&crop=face" alt="Sarah J." class="w-10 h-10 rounded-full mr-3">
-                        <div>
-                            <div class="font-semibold text-gray-800">Sarah J.</div>
-                            <div class="text-gray-500 text-xs">Bride</div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 left-0 w-full h-full bg-black z-40 md:hidden">
+            <div class="flex flex-col items-center justify-center h-full space-y-8">
+                <button class="absolute top-6 right-6 text-white text-2xl" onclick="toggleMobileMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <a href="#home" class="text-white text-xl hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Home</a>
+                <a href="#about" class="text-white text-xl hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">About</a>
+                <a href="#services" class="text-white text-xl hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Services</a>
+                <a href="#portfolio" class="text-white text-xl hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Portfolio</a>
+                <a href="#testimonials" class="text-white text-xl hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Reviews</a>
+                <a href="#pricing" class="text-white text-xl hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Pricing</a>
+                <a href="#contact" class="text-white text-xl hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-7xl font-display font-bold mb-6">
+                Capturing <span class="text-gradient">Moments</span><br>
+                Creating <span class="text-gradient">Memories</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+                Professional photography and videography services for weddings, commercial projects, music videos, and special events
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#portfolio" class="btn-gold text-black px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center">
+                    <i class="fas fa-camera mr-2"></i>
+                    View Our Work
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition duration-300 inline-flex items-center justify-center">
+                    <i class="fas fa-phone mr-2"></i>
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">About <span class="text-gradient">SR Creations</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We are passionate visual storytellers dedicated to capturing life's most precious moments with artistic excellence and technical precision.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-3xl font-display font-semibold mb-6">Our Story</h3>
+                    <p class="text-gray-600 mb-6">
+                        Founded in 2018, SR Creations has grown from a small creative team into a premier photography and videography company. We believe that every moment tells a story, and our mission is to capture those stories with unparalleled artistry and attention to detail.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Our diverse portfolio spans weddings, corporate events, commercial campaigns, music videos, and educational content. We combine cutting-edge technology with creative vision to deliver exceptional results that exceed expectations.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="animate-counter text-gradient" data-target="500">0</div>
+                            <p class="text-gray-600">Projects Completed</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="animate-counter text-gradient" data-target="50">0</div>
+                            <p class="text-gray-600">Awards Won</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                    <div class="text-yellow-400 text-lg mb-3">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1554048612-b6a482b224b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="About Us" class="rounded-lg shadow-2xl">
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 gradient-gold rounded-lg flex items-center justify-center">
+                        <i class="fas fa-camera text-black text-2xl"></i>
                     </div>
-                    <p class="text-gray-600 mb-4 italic text-sm">"Amazing corporate headshots! The photographer made me feel comfortable and the results were exceptional."</p>
-                    <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="Michael C." class="w-10 h-10 rounded-full mr-3">
-                        <div>
-                            <div class="font-semibold text-gray-800">Michael C.</div>
-                            <div class="text-gray-500 text-xs">CEO, TechStart</div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-display font-semibold mb-4">Meet Our Team</h3>
+                <p class="text-xl text-gray-600">Creative professionals passionate about visual storytelling</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center card-hover bg-white rounded-lg p-8 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Alex Johnson" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                    <h4 class="text-xl font-semibold mb-2">Alex Johnson</h4>
+                    <p class="text-gradient font-medium mb-2">Lead Photographer</p>
+                    <p class="text-gray-600">10+ years of experience in wedding and portrait photography</p>
+                </div>
+                <div class="text-center card-hover bg-white rounded-lg p-8 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Sarah Chen" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                    <h4 class="text-xl font-semibold mb-2">Sarah Chen</h4>
+                    <p class="text-gradient font-medium mb-2">Creative Director</p>
+                    <p class="text-gray-600">Specialist in commercial videography and brand storytelling</p>
+                </div>
+                <div class="text-center card-hover bg-white rounded-lg p-8 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Mike Rodriguez" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                    <h4 class="text-xl font-semibold mb-2">Mike Rodriguez</h4>
+                    <p class="text-gradient font-medium mb-2">Video Producer</p>
+                    <p class="text-gray-600">Expert in music videos and event cinematography</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding gradient-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">Our <span class="text-gradient">Services</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive photography and videography solutions tailored to your unique needs
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Wedding Photography -->
+                <div class="card-hover bg-white rounded-xl p-8 text-center shadow-xl">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Wedding Photography</h3>
+                    <p class="text-gray-600 mb-6">Capture your special day with elegant, timeless photography that tells your unique love story.</p>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Pre-wedding consultation</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Full-day coverage</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Professional editing</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Online gallery delivery</li>
+                    </ul>
+                </div>
+
+                <!-- Educational Content -->
+                <div class="card-hover bg-white rounded-xl p-8 text-center shadow-xl">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Educational Content</h3>
+                    <p class="text-gray-600 mb-6">Create engaging educational videos and photography for schools, universities, and online courses.</p>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Course content creation</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Lecture recording</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Interactive presentations</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Student portraits</li>
+                    </ul>
+                </div>
+
+                <!-- Commercial Advertising -->
+                <div class="card-hover bg-white rounded-xl p-8 text-center shadow-xl">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bullhorn text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Commercial Advertising</h3>
+                    <p class="text-gray-600 mb-6">Professional product photography and promotional videos that drive sales and brand awareness.</p>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Product photography</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Brand campaigns</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Social media content</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Corporate headshots</li>
+                    </ul>
+                </div>
+
+                <!-- Music Videos -->
+                <div class="card-hover bg-white rounded-xl p-8 text-center shadow-xl">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-music text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Music Videos</h3>
+                    <p class="text-gray-600 mb-6">Creative music video production that brings your sound to life with stunning visuals.</p>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Concept development</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Multi-camera setup</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Creative editing</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Color grading</li>
+                    </ul>
+                </div>
+
+                <!-- Business Events -->
+                <div class="card-hover bg-white rounded-xl p-8 text-center shadow-xl">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-briefcase text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Business Events</h3>
+                    <p class="text-gray-600 mb-6">Document your corporate events, conferences, and business celebrations professionally.</p>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Conference coverage</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Corporate parties</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Team building events</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Award ceremonies</li>
+                    </ul>
+                </div>
+
+                <!-- Additional Service -->
+                <div class="card-hover bg-white rounded-xl p-8 text-center shadow-xl">
+                    <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-video text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Event Videography</h3>
+                    <p class="text-gray-600 mb-6">Comprehensive video coverage for all types of special events and celebrations.</p>
+                    <ul class="text-left text-gray-600 space-y-2">
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Live streaming</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Highlight reels</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Drone footage</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i>Same-day editing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Our <span class="text-gradient">Portfolio</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                    Explore our diverse collection of photography and videography work
+                </p>
+                
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="filter-btn bg-yellow-500 text-black px-6 py-2 rounded-full font-semibold transition duration-300" data-filter="all">All</button>
+                    <button class="filter-btn bg-white text-gray-700 hover:bg-yellow-500 hover:text-black px-6 py-2 rounded-full font-semibold transition duration-300" data-filter="wedding">Weddings</button>
+                    <button class="filter-btn bg-white text-gray-700 hover:bg-yellow-500 hover:text-black px-6 py-2 rounded-full font-semibold transition duration-300" data-filter="commercial">Commercial</button>
+                    <button class="filter-btn bg-white text-gray-700 hover:bg-yellow-500 hover:text-black px-6 py-2 rounded-full font-semibold transition duration-300" data-filter="events">Events</button>
+                    <button class="filter-btn bg-white text-gray-700 hover:bg-yellow-500 hover:text-black px-6 py-2 rounded-full font-semibold transition duration-300" data-filter="music">Music</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+                <!-- Wedding Photos -->
+                <div class="portfolio-item wedding" onclick="openLightbox('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding Photography" class="w-full h-64 object-cover rounded-lg">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus text-3xl mb-2"></i>
+                            <p class="font-semibold">Wedding Photography</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                    <div class="text-yellow-400 text-lg mb-3">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+                <div class="portfolio-item commercial" onclick="openLightbox('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Commercial Photography" class="w-full h-64 object-cover rounded-lg">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus text-3xl mb-2"></i>
+                            <p class="font-semibold">Commercial Shoot</p>
+                        </div>
                     </div>
-                    <p class="text-gray-600 mb-4 italic text-sm">"Our family photos turned out beautiful! The photographer was patient with our kids and captured genuine moments."</p>
-                    <div class="flex items-center">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face" alt="Emily R." class="w-10 h-10 rounded-full mr-3">
-                        <div>
-                            <div class="font-semibold text-gray-800">Emily R.</div>
-                            <div class="text-gray-500 text-xs">Mother of 3</div>
+                </div>
+
+                <div class="portfolio-item events" onclick="openLightbox('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Event Photography" class="w-full h-64 object-cover rounded-lg">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus text-3xl mb-2"></i>
+                            <p class="font-semibold">Corporate Event</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item music" onclick="openLightbox('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Music Video" class="w-full h-64 object-cover rounded-lg">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus text-3xl mb-2"></i>
+                            <p class="font-semibold">Music Video</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item wedding" onclick="openLightbox('https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding Couple" class="w-full h-64 object-cover rounded-lg">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus text-3xl mb-2"></i>
+                            <p class="font-semibold">Wedding Portrait</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item commercial" onclick="openLightbox('https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Product Photography" class="w-full h-64 object-cover rounded-lg">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus text-3xl mb-2"></i>
+                            <p class="font-semibold">Product Photography</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item events" onclick="openLightbox('https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Conference" class="w-full h-64 object-cover rounded-lg">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus text-3xl mb-2"></i>
+                            <p class="font-semibold">Business Conference</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item music" onclick="openLightbox('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Concert" class="w-full h-64 object-cover rounded-lg">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus text-3xl mb-2"></i>
+                            <p class="font-semibold">Live Concert</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item wedding" onclick="openLightbox('https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Wedding Rings" class="w-full h-64 object-cover rounded-lg">
+                    <div class="portfolio-overlay">
+                        <div class="text-center text-white">
+                            <i class="fas fa-search-plus text-3xl mb-2"></i>
+                            <p class="font-semibold">Wedding Details</p>
                         </div>
                     </div>
                 </div>
@@ -419,186 +569,457 @@
         </div>
     </section>
 
-    <!-- Booking Page -->
-    <div id="booking-page" class="py-16 gradient-bg">
-        <section id="booking" class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-3">Book Your Session</h2>
-                <div class="w-20 h-1 bg-white mx-auto mb-4"></div>
-                <p class="text-white max-w-xl mx-auto">
-                    Fill out the form below and we'll get back to you within 24 hours.
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">×</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Client <span class="text-gradient">Testimonials</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Hear what our clients say about their experience with SR Creations
                 </p>
             </div>
-            <div class="max-w-xl mx-auto bg-white rounded-lg shadow-lg p-6">
-                <form id="booking-form" class="space-y-4">
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="firstName" class="block text-gray-700 font-semibold mb-1 text-sm">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
-                        </div>
-                        <div>
-                            <label for="lastName" class="block text-gray-700 font-semibold mb-1 text-sm">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
-                        </div>
-                    </div>
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="email" class="block text-gray-700 font-semibold mb-1 text-sm">Email *</label>
-                            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-gray-700 font-semibold mb-1 text-sm">Phone *</label>
-                            <input type="tel" id="phone" name="phone" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="service" class="block text-gray-700 font-semibold mb-1 text-sm">Service Type *</label>
-                        <select id="service" name="service" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
-                            <option value="">Select a service</option>
-                            <option value="wedding">Wedding</option>
-                            <option value="event-video">Videography</option>
-                            <option value="portrait">Portrait</option>
-                            <option value="commercial">Commercial</option>
-                            <option value="family">Family</option>
-                            <option value="graduation">Graduation</option>
-                            <option value="event-planner">Need an event planner</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="eventDate" class="block text-gray-700 font-semibold mb-1 text-sm">Preferred Date *</label>
-                        <input type="date" id="eventDate" name="eventDate" required class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-gray-700 font-semibold mb-1 text-sm">Additional Details</label>
-                        <textarea id="message" name="message" rows="3" placeholder="Tell us more about your event..." class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition duration-300 shadow-md text-sm">
-                            <i class="fas fa-paper-plane mr-2"></i>
-                            Send Request
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </div>
 
-    <!-- Contact Page -->
-    <div id="contact-page" class="py-16 bg-gray-50">
-        <section id="contact" class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-3">Get In Touch</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Emily Davis" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Emily Davis</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"SR Creations captured our wedding day perfectly! The photos are absolutely stunning and we couldn't be happier. They made us feel comfortable throughout the entire process."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="James Wilson" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">James Wilson</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Professional, creative, and reliable. The commercial video they produced for our company exceeded all expectations. Highly recommended for business projects!"</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Maria Rodriguez" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Maria Rodriguez</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The music video they created for my band was incredible! Their creative vision and technical expertise brought our song to life in ways we never imagined."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="David Chen" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">David Chen</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Outstanding work on our corporate event! They captured every important moment and delivered the final video ahead of schedule. True professionals."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Lisa Thompson" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Lisa Thompson</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Amazing team! They handled our university's promotional video project with such professionalism. The final product was exactly what we envisioned."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Robert Kim" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-semibold">Robert Kim</h4>
+                            <div class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The product photography for our e-commerce store was exceptional. Sales increased significantly after using their professional images. Worth every penny!"</p>
+                </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
-                        <i class="fas fa-map-marker-alt text-2xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Location</h3>
-                    <p class="text-gray-600 text-sm">123 Photography Lane, New York</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
-                        <i class="fas fa-phone text-2xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Contact</h3>
-                    <p class="text-gray-600 text-sm"><a href="tel:+1234567890" class="hover:text-purple-600">(123) 456-7890</a></p>
-                    <p class="text-gray-600 text-sm"><a href="mailto:info@srcreations.com" class="hover:text-purple-600">info@srcreations.com</a></p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 shadow-md">
-                        <i class="fas fa-clock text-2xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Hours</h3>
-                    <p class="text-gray-600 text-sm">Mon - Fri: 9AM - 6PM</p>
-                    <p class="text-gray-600 text-sm">Sat: 10AM - 4PM</p>
+
+            <!-- Comment Section -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-3xl font-display font-semibold mb-8 text-center">Leave a Review</h3>
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <form id="commentForm" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Your Name</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Enter your name">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Your Experience</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Worked with us? Share your experience...."></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-gold text-black py-3 rounded-lg font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Submit Review
+                        </button>
+                    </form>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Pricing <span class="text-gradient">Plans</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Transparent pricing for professional photography and videography services
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Basic Package -->
+                <div class="pricing-card bg-white rounded-xl p-8 shadow-lg">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Starter</h3>
+                        <div class="text-4xl font-bold text-gradient mb-2">₹49,999</div>
+                        <p class="text-gray-600">Perfect for small events</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>4 hours coverage</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>100+ high-res photos</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Online gallery</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Basic editing</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>2-week delivery</li>
+                    </ul>
+                    <button class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition duration-300">Choose Plan</button>
+                </div>
+
+                <!-- Professional Package -->
+                <div class="pricing-card pricing-featured bg-white rounded-xl p-8 shadow-xl">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Professional</h3>
+                        <div class="text-4xl font-bold text-gradient mb-2">₹99,999</div>
+                        <p class="text-gray-600">Most popular choice</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>8 hours coverage</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>300+ high-res photos</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>2-hour highlight video</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Professional editing</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Online gallery + USB</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>1-week delivery</li>
+                    </ul>
+                    <button class="w-full btn-gold text-black py-3 rounded-lg font-semibold">Choose Plan</button>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="pricing-card bg-white rounded-xl p-8 shadow-lg">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-semibold mb-2">Premium</h3>
+                        <div class="text-4xl font-bold text-gradient mb-2">₹1,79,999</div>
+                        <p class="text-gray-600">Ultimate experience</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Full day coverage</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>500+ high-res photos</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>4-hour cinematic video</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Drone footage</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Premium editing</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Same-day highlights</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>3-day delivery</li>
+                    </ul>
+                    <button class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition duration-300">Choose Plan</button>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-4">Need a custom package? We'd love to create something unique for you.</p>
+                <a href="#contact" class="btn-gold text-black px-8 py-3 rounded-full font-semibold inline-flex items-center">
+                    <i class="fas fa-phone mr-2"></i>
+                    Get Custom Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding gradient-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-4">Get In <span class="text-gradient">Touch</span></h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Ready to capture your special moments? Let's discuss your project and create something amazing together.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-semibold mb-6">Send us a message</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">First Name</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2">Last Name</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Phone</label>
+                            <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Service Type</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                                <option>Wedding Photography</option>
+                                <option>Commercial Video</option>
+                                <option>Music Video</option>
+                                <option>Business Event</option>
+                                <option>Educational Content</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Event Date</label>
+                            <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full btn-gold text-black py-3 rounded-lg font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="text-white">
+                    <h3 class="text-2xl font-semibold mb-8">Contact Information</h3>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 gradient-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-black"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Studio Address</h4>
+                                <p class="text-gray-300">123 Creative Boulevard<br>Photography District, Mumbai 400001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 gradient-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-phone text-black"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Phone Numbers</h4>
+                                <p class="text-gray-300">Main: (022) 1234-5678<br>Mobile: +91 98765 43210</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 gradient-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-envelope text-black"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Email Addresses</h4>
+                                <p class="text-gray-300">info@srcreations.com<br>bookings@srcreations.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 gradient-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-clock text-black"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Business Hours</h4>
+                                <p class="text-gray-300">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: By Appointment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div>
+                        <h4 class="font-semibold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-black transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-black transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-black transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-black transition duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-black transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-10">
+    <footer class="bg-black text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h3 class="text-lg font-semibold mb-3">SR Creations</h3>
-                    <p class="text-gray-400 text-sm mb-3">Capturing life's special moments.</p>
-                    <div class="flex space-x-3">
-                        <a href="#" class="text-gray-400 hover:text-purple-400"><i class="fab fa-facebook text-lg"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400"><i class="fab fa-instagram text-lg"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-purple-400"><i class="fab fa-twitter text-lg"></i></a>
+                    <div class="text-2xl font-display font-bold mb-4">
+                        <span class="text-gradient">SR</span> Creations
+                    </div>
+                    <p class="text-gray-400 mb-4">Professional photography and videography services that capture life's most precious moments with artistic excellence.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
+                
                 <div>
-                    <h3 class="text-lg font-semibold mb-3">Services</h3>
-                    <ul class="space-y-1 text-gray-400 text-sm">
-                        <li><a href="#services-page" class="hover:text-white">Weddings</a></li>
-                        <li><a href="#services-page" class="hover:text-white">Videography</a></li>
-                        <li><a href="#services-page" class="hover:text-white">Portraits</a></li>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-yellow-500 transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-yellow-500 transition duration-300">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-yellow-500 transition duration-300">Services</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-yellow-500 transition duration-300">Portfolio</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-yellow-500 transition duration-300">Contact</a></li>
                     </ul>
                 </div>
+                
                 <div>
-                    <h3 class="text-lg font-semibold mb-3">Links</h3>
-                    <ul class="space-y-1 text-gray-400 text-sm">
-                        <li><a href="#about-page" class="hover:text-white">About Us</a></li>
-                        <li><a href="#gallery-page" class="hover:text-white">Portfolio</a></li>
-                        <li><a href="#booking-page" class="hover:text-white">Book Now</a></li>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">Wedding Photography</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">Commercial Video</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">Music Videos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">Business Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-500 transition duration-300">Educational Content</a></li>
                     </ul>
                 </div>
+                
                 <div>
-                    <h3 class="text-lg font-semibold mb-3">Newsletter</h3>
-                    <div class="flex">
-                        <input type="email" placeholder="Your email" class="flex-1 px-3 py-1 rounded-l-md bg-gray-800 text-sm">
-                        <button class="bg-purple-600 px-3 py-1 rounded-r-md"><i class="fas fa-paper-plane"></i></button>
-                    </div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-map-marker-alt mr-2 text-yellow-500"></i>123 Creative Boulevard, Mumbai 400001</li>
+                        <li><i class="fas fa-phone mr-2 text-yellow-500"></i>(022) 1234-5678</li>
+                        <li><i class="fas fa-envelope mr-2 text-yellow-500"></i>info@srcreations.com</li>
+                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400 text-xs">
-                <p>© 2024 SR Creations. All rights reserved.</p>
+            
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">© 2024 SR Creations. All rights reserved. | Designed with ❤️ for capturing memories</p>
             </div>
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox no-print">
-        <span class="close-lightbox">×</span>
-        <img class="lightbox-content" id="lightbox-img">
-    </div>
-
     <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
 
+        // Smooth Scrolling for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
 
-        const filterButtons = document.querySelectorAll('.gallery-filter');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.getAttribute('data-filter');
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('bg-purple-600', 'text-white');
-                    btn.classList.add('bg-gray-200', 'text-gray-700');
+        // Portfolio Filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('bg-yellow-500', 'text-black');
+                    b.classList.add('bg-white', 'text-gray-700', 'hover:bg-yellow-500', 'hover:text-black');
                 });
-                button.classList.add('bg-purple-600', 'text-white');
-                galleryItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                this.classList.remove('bg-white', 'text-gray-700', 'hover:bg-yellow-500', 'hover:text-black');
+                this.classList.add('bg-yellow-500', 'text-black');
+
+                // Filter portfolio items
+                const filter = this.dataset.filter;
+                const items = document.querySelectorAll('.portfolio-item');
+                
+                items.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
                         item.style.display = 'block';
                     } else {
                         item.style.display = 'none';
@@ -607,27 +1028,159 @@
             });
         });
 
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const closeLightbox = document.querySelector('.close-lightbox');
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                lightboxImg.src = item.querySelector('img').src;
-                lightbox.style.display = 'block';
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.style.display = 'block';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Animated Counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.animate-counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.dataset.target);
+                        const increment = target / 100;
+                        let current = 0;
+                        
+                        const updateCounter = () => {
+                            if (current < target) {
+                                current += increment;
+                                counter.textContent = Math.ceil(current) + '+';
+                                setTimeout(updateCounter, 20);
+                            } else {
+                                counter.textContent = target + '+';
+                            }
+                        };
+                        
+                        updateCounter();
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+            
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Contact Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const inputs = this.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    input.classList.remove('border-red-500');
+                }
+            });
+            
+            if (isValid) {
+                // Simulate form submission
+                alert('Thank you for your message! We\'ll get back to you soon.');
+                this.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Comment Form Handling
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nameInput = this.querySelector('input[required]');
+            const experienceInput = this.querySelector('textarea[required]');
+            let isValid = true;
+
+            if (!nameInput.value.trim()) {
+                nameInput.classList.add('border-red-500');
+                isValid = false;
+            } else {
+                nameInput.classList.remove('border-red-500');
+            }
+
+            if (!experienceInput.value.trim()) {
+                experienceInput.classList.add('border-red-500');
+                isValid = false;
+            } else {
+                experienceInput.classList.remove('border-red-500');
+            }
+            
+            if (isValid) {
+                // Simulate form submission
+                alert('Thank you for sharing your experience!');
+                this.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateCounters();
+            
+            // Add entrance animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for animations
+            document.querySelectorAll('.card-hover, .testimonial-card, .pricing-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
             });
         });
-        closeLightbox.addEventListener('click', () => lightbox.style.display = 'none');
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) lightbox.style.display = 'none';
-        });
 
-        document.getElementById('booking-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your booking request! We will be in touch shortly.');
-            this.reset();
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                if (document.getElementById('mobileMenu').classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            }
         });
-
-        document.getElementById('eventDate').min = new Date().toISOString().split('T')[0];
     </script>
 </body>
 </html>
